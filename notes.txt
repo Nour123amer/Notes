@@ -1,0 +1,81 @@
+﻿/------------------- Ecommerce needs ----------------------/
+1- form=> formik
+2-Tailwind => install tailwind
+3-Api => install axios
+4-Icons=>react icons  or  fontawesome
+
+
+*******************************
+/--------in tailwind.config -----------/
+1- npm i -D tailwindcss postcss autoprefixer
+2- npx tailwindcss init -p
+3- content:["./src/**/*.{js,jsx,ts,tsx}", "./index.html"]
+4-  theme: {
+    container:{
+      center:true,
+screens:{
+ sm:"600px",
+ md:"728px",
+ lg:"960px",
+ xl:"1220px",
+ "2xl":"1380px"
+},
+    }
+
+********************************
+/-------- index.css ---------/
+4- @tailwind base;
+   @tailwind components;
+   @tailwind utilities;
+
+********************************
+5- npm run dev
+
+--------------------------------------------------------------------------------
+/------ To use fontawesome ------/
+npm i @fortawesome/fontawesome-free
+we us 
+import "@fortawesome/fontawesome-free/css/all.min.css"
+in => main.jsx
+
+---------------------------------------------------------------------------------
+npm i react-router-dom
+---------------------------------------------------------------------------------
+
+/----------- React Query -------------/
+npm i react-query
+npm i @tanstack/react-query
+**************************************************************
+Real Dom =>Javascript
+Virtual Dom => React
+virtual Dom بتعدل على العناصر اللي بتتغير بس
+----------------------------------------------------------------------------------
+
+react عاملة 
+hook => اسمه useParams(بيرجع كل ال params اللي بتبعتها)
+----------------------------------------------------------------------------------
+اول حاجة بنقرأ state وبعد كدا 
+بنقرأ return 
+بعد كدا ال data بتكون جت من ال API
+وبعد كدا ال data تتغير 
+ولما تتغير بندخل في ال updating phase
+
+----------------------------------------------------------------------------------
+                 -------- react image gallery ------
+1- npm i react-image-gallery
+2- @import "~react-image-gallery/styles/css/image-gallery.css"; (in idex.css)
+3- import "react-image-gallery/styles/css/image-gallery.css";(in main.js)
+
+
+
+
+
+
+
+
+
+
+
+
+
+

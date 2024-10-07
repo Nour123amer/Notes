@@ -1,0 +1,77 @@
+------------ setup ------------
+1-
+ -npm create vite
+
+ -npm create vite@latest projectname -- --template react
+
+cd=> change directory
+
+
+2- npm i 
+----------------
+أي سكريبت عايزة أعمله run
+npm run scriptname
+-----------------
+in arrow function لما بنستخدم {}
+لازم نستخدم return
+-------------------------------------
+------Using Tailwind -------
+1- npm install -D tailwindcss postcss autoprefixer
+2- npx tailwindcss init -p
+3- in tailwind.config:
+ content: ["./src/**/*.{js,jsx,ts,tsx}","./index.html"]
+
+4- in index.css add:
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+ بعد ما اخلص tailwind setup  لازم أوقف واعمل
+npm run dev من جديد
+-------------------------------------------------------------
+
+------ How to deal with images in react -------
+
+
+
+-------------------------------------------------------------
+       **** How to use icons****
+
+1-npm i @fortawesome/fontawesome-free -D
+وبعدين نربطها في ال main.js
+
+-------------------------------------------------------------
+            ------ call API ------
+
+
+- npm install axios
+axios.method(get,post,....)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

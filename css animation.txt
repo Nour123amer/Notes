@@ -1,0 +1,8 @@
+            ----------------- CSS animation -------------------
+1- animation name
+2- animation-duration
+3- animation-delay
+4- animation-iteration-count
+5- animation-direction
+6- animation-timing-function
+7- animation-fill-mode

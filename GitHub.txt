@@ -1,0 +1,6 @@
+/------------ git hub -----------------/
+git init 
+git remote add origin link
+git add .
+git commit -m "   "
+git push origin master

@@ -1,0 +1,19 @@
+@layer => بتساعدنا نحل مشكلة ال specificty
+
+@layer one,two,three
+
+@layer one{
+#demo.route{
+background-color:red;
+}
+
+@layer two{
+h2{
+background-color:blue;
+}
+}
+
+هنا 2 أقوى من 1
+اخر layer بتكون أقوى
+-------------------------------------------- 
+ممكن نربط bootstrap في css عن ريق @import

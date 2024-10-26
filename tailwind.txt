@@ -1,0 +1,212 @@
+      ---------------- Tailwind -------------
+npm init -y => install package.json
+npm install -D tailwind
+npx tailwind css init 
+
+in css we add:
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+in tailwind.config
+
+content:["./src/**/*.{html,js}]
+
+in package.json:
+"scripts":{
+build-css:"npx tailwindcss -i ./src/css/input.css -o  ./dist/css/style.css --watch"
+
+in terminal => npm run build-css 
+------------------------------------------------------------------------------------------
+ ---------bg- Color -----------
+bg-red-600 => bg-color-shade
+----------------------------------------------------
+  ----------- text-color------------
+text-lime-600
+----------------------------------------------------
+                ------------ shadow --------------
+shadow-lg shadow-red-600
+----------------------------------------------------
+  --------- border ---------------
+border-8 border-red-600
+----------------------------------------------------
+=============================================================================
+               --------------- size ---------------
+text-2xl
+=============================================================================
+
+                ---------- width ----------------
+w-80 => rem 
+w-1/4
+w-1/2
+w-full = width(100%)
+w-screen = w-100vw
+w-fit = fit-content
+w-[7.3px]
+max-w-80
+max-w-screen-xl
+==============================================================================
+
+           ---------------- space between ---------------
+space-x-8
+space-y-8 => هيعمل margin تحت العناصر
+space-y-8 space-y-reverse => هيعمل margin فوق العناصر
+(make margin between siblings)
+
+
+(height the same)
+
+==================================================================================
+                   ------------ margin ---------------
+m-8
+-m-8
+ml-8
+mr-8
+mb-8
+mx-8
+my-8
+ms-8   => margin-inline-start
+me-8   => margin-inline-end
+m-auto
+mx-auto
+my-auto
+(padding the same but can't take negative value)
+===================================================================================
+              ----------- border-raduis --------------
+rounded
+rounded-sm
+rounded-md
+rounded-lg
+rounded-xl
+rounded-full => 50% ====>(button - circle)
+===================================================================================
+             --------- background -----------
+bg-lime-400
+bg-[url(' ')]
+أو اعمل extend (background-image) in tailwind.config
+bg-top => start of image
+bg-bottom => end of image
+bg-cover
+bg-contain
+bg-[length:200px] =>size
+bg-[length:100px_200px] =>size
+bg-[200px] =>position
+bg-no-repeat
+bg-top-center
+bg[0px_200px] =>position
+bg-scroll =>background-attachment
+-------------------------------------------------------------------------
+           ------------- gradiant ----------
+from-pink-600 from-30% to-blue-200 to-30% (no gradiant)
+bg-gradiant-to-tr from-lime-600 from-40% via-blue-500 via-40% to-blue-600 to-60%
+(extend in tailwind.config)
+
+===================================================================================
+
+            ------------ opacity -------------
+opacity-50 (all content)
+bg-opacity-5
+border-opacity-25
+
+====================================================================================
+           --------- container --------------
+container max-w-screen-xl
+
+====================================================================================
+            --------- position & display ----------
+absolute right-0 bottom-0
+
+inset: top right bottom left;
+
+inline-block
+visible
+hidden
+flex
+grid
+
+====================================================================================
+             ----------- shadow ------------
+shadow
+shadow-md
+shadow-sm
+
+shadow-xl shadow-blue-500
+shadow[10px_20px]
+
+====================================================================================
+            ---------- Dark mode ------------
+dark:bg-black-600 dark:text-white
+<html lang="en" class="dark" > 
+
+====================================================================================
+         ---------- pseudo class -----------
+hover:bg-blue
+hover:text-white
+<input type="text" class="focus:border-8 focus:border-red-600" />
+
+group-hover:bg-blue-700 => (group : parent class)
+
+<div class= "group/grand grand" >
+
+<div class= "group/parent parent">
+<div class="child hover:bg-black group-hover/parent:border-8 group-hover/parent:border-red-700"
+لو siblings هنستخدم ال class peer
+<div class="peer">
+<div class="peer-hover:bg-black ">
+=====================================================================================
+         ----------- pseudo elements ------------
+<h2 class="relative before:w-0 hover:before:w-full before:h-1 before:bg-lime before:absolute before:left-0 before:bottom-0
+
+=====================================================================================
+           -------- transition & Transform ------------
+
+transition-colors
+transition-transform
+transition-all
+transition-properity duration-75 delay-500 ease-linear
+before:transition-all before:duration-300
+-------------------------------------------------------
+hover:scale-50
+hover:translate-100
+hover:translate-y-full
+
+=====================================================================================
+           -------- responsive design -------------
+sm:bg-red-800
+lg:flex-row
+md:max-lg:bg-blue-900
+
+=====================================================================================
+           ------ Daisyui ------------
+(tailwind library)
+npm i -D daisyui@latest
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

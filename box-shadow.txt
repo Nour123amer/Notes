@@ -1,0 +1,22 @@
+         --------------- Box Shadow -------------
+box-shadow: offset-x offset-y blur-radius spread-radius color;
+===========================================================================
+box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.3);
+inset: Positions the shadow inside the element.
+
+----------------------------------------------------------------------------
+
+The perspective property in CSS is used to create a 3D effect on elements by defining
+ the distance from the viewer to the z-plane of the element (or "camera distance").
+ When you add perspective to a parent container, any 3D-transformed children will appear
+ to have depth, giving a more realistic view.
+
+.card-wrapper {
+  perspective: 1000rem;
+}
+
+===================================================================================
+transform-origin: x-axis y-axis z-axis;
+x-axis: Specifies the horizontal origin, which can be a percentage (like 50%), keyword (left, right, or center), or length (e.g., 10px).
+y-axis: Specifies the vertical origin, also using percentages, keywords (top, bottom, or center), or length.
+z-axis (optional): Sets the origin along the z-axis, useful in 3D transformations. This value is generally in pixels (0px is the default).

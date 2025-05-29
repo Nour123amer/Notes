@@ -47,6 +47,12 @@ npm run dev من جديد
 axios.method(get,post,....)
 
 
+==============================================================
+
+pnpm init -y
+pnpm i json server
+npx json-server db.json --watch
+
 
 
 

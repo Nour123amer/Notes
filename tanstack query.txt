@@ -1,0 +1,39 @@
+     ============= Tanstack query (React query) ===============
+
+=> server state management => manage data from API'S (handle API requests)
+(يعني لما أعمل request والداتا تيجي من API هيحصلها caching in browser )
+
+وبالتالي لو انا عملت request to get products in home
+مش مضطرة اعمل call products تاني عشان استخدمها
+
+
+1- npm i @tanstack/react-query
+2- in APP.jsx
+  1- import {QueryClient ,QueryClientProvider } from ...
+  2- let query = new QueryClient();
+  3- QueryClientProvider => wrap app
+
+     <QueryClientProvider client={query} >
+       <RouterProvider router={routes} >  </RouterProvider>
+     </ QueryClientProvider>
+     
+
+  4- useQuery({ queryKey :[""],
+                queryFn : function that send the request 
+              })
+
+     useQuery return object that contains ( data -error - isError - isLoading -isFetching )
+
+ex::
+
+function getProducts(){
+return axios.get(" ");
+}
+
+let { data ,error , isFetching , isLoading } = useQuery({
+  queryKey : ["AllProducts"],
+  queryFn : getProducts,
+  staleTime : 10000  // data active for 10sec
+  retry : 3 // لو الريكويست بيرجع ايرور هيحاول تاني 3 مرات
+  retryDelay : 3000 // هيعمل retry بعد 3 د لو في مشكلة
+})

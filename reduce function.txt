@@ -1,0 +1,25 @@
+{order.products?.reduce((acc, item) => acc + item.quantity, 0)}
+🎯 Goal:
+To calculate the total quantity of products in a single order.
+
+🧠 What is .reduce()?
+The .reduce() method loops over an array and accumulates a single return value by applying a function to each element.
+
+🧩 Breakdown of the code:
+order.products?.reduce(...)
+order.products is an array of products in a single order.
+
+The optional chaining (?.) ensures that if products is undefined or null, it doesn't crash — it will just return undefined.
+
+(acc, item) => acc + item.quantity
+This is the callback function used by reduce.
+
+acc → the accumulator (starts at 0, then stores the running total).
+
+item → the current product object in the loop.
+
+item.quantity → the quantity of the current product.
+
+acc + item.quantity → adds the current quantity to the total so far.
+
+0 → the initial value of the accumulator.

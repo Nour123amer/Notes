@@ -1,0 +1,50 @@
+
+✅ يعني إيه Shadow DOM ببساطة؟
+Shadow DOM هو جزء من تقنيات المتصفح بيخلي كل عنصر (Component) في الصفحة يشتغل كأنه "منعزل لوحده" — الستايلات (CSS) والحاجات اللي جواه مش بتأثر على باقي الصفحة، والعكس صحيح.
+
+🎯 إنت ليه محتاج Shadow DOM؟
+لو بتشتغل على مكون (زي زر أو مودال أو input)، ممكن يحصل تعارض:
+
+ستايلات الزر بتاعك تأثر على زر تاني في الصفحة.
+
+أو الستايلات العامة للصفحة تغيّر شكل الزر بتاعك غصب عنك.
+
+الـ Shadow DOM بيحل المشكلة دي عن طريق إنه بيحط المكون جوا "صندوق مغلق"، كأنك حاطه في غرفة خاصة 👇
+
+
+
+
+
+
+
+import React, { useEffect, useRef } from "react";
+
+export default function ShadowDomButton() {
+  const containerRef = useRef();
+
+  useEffect(() => {
+    const shadowRoot = containerRef.current.attachShadow({ mode: "open" });
+
+    shadowRoot.innerHTML = `
+      <style>
+        button {
+          background-color: #f97316;
+          color: white;
+          padding: 10px 20px;
+          border: none;
+          border-radius: 6px;
+          font-size: 16px;
+          cursor: pointer;
+        }
+      </style>
+      <button>Click Me (Shadow DOM)</button>
+    `;
+  }, []);
+
+  return (
+    <div>
+      <h2>This is a normal React component</h2>
+      <div ref={containerRef}></div>
+    </div>
+  );
+}

@@ -1,0 +1,22 @@
+What are Controlled Components?
+A controlled component in React is an element whose state is controlled by React itself. This means that the component's state is stored in a React component's state and can only be updated by triggering a state change via React’s setState() method.
+
+Features of Controlled
+State Management: Form data is handled by the component's state using React's useState hook or this.state in class components.
+Data Flow: The input elements' values are set by the state, and any changes are reflected through state updates.
+Predictability: Since the state is managed by React, the component's behavior is predictable and consistent.
+Real-Time Validation: Enables immediate validation and formatting of user input.
+Single Source of Truth: The state serves as the single source of truth for the form data.
+
+
+
+What are Uncontrolled Components?
+An uncontrolled component in React refers to a component where the form element's state is not directly controlled by React. Instead, the form element itself maintains its own state, and React only interacts with the element indirectly through references (refs).
+
+Features of Uncontrolled Components
+DOM-Managed State: Form data is handled by the DOM itself, not by React state.
+Use of Refs: Access to form values is achieved using React's useRef() or createRef() to reference DOM elements directly.
+No State Management: Eliminates the need for state variables and event handlers for each input field.
+Simpler Implementation: Suitable for simple forms or when integrating with non-React libraries that manipulate the DOM directly.
+Less Predictable: Since the component's state is not synchronized with React, it can lead to less predictable behavior.
+Manual Validation: Validation and formatting need to be handled manually, often during form submission.

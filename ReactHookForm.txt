@@ -1,0 +1,114 @@
+فورم تسجيل حساب مع التحقق
+🔧 التقنيات المستخدمة:
+react-hook-form
+
+تحقق من:
+
+الاسم
+
+البريد الإلكتروني (بصيغة صحيحة)
+
+كلمة المرور (بطول مناسب)
+
+تأكيد كلمة المرور
+
+📦 أولًا: تثبيت المكتبة
+لو ما ثبتتش المكتبة:
+
+bash
+Copy
+Edit
+npm install react-hook-form
+🧩 الكود الكامل:
+tsx
+Copy
+Edit
+import React from "react";
+import { useForm } from "react-hook-form";
+
+export default function SignUpForm() {
+  const {
+    register,
+    handleSubmit,
+    watch,
+    formState: { errors },
+  } = useForm();
+
+  const onSubmit = (data) => {
+    console.log("تم التسجيل بنجاح:", data);
+  };
+
+  const password = watch("password");
+
+  return (
+    <form onSubmit={handleSubmit(onSubmit)} className="max-w-md mx-auto space-y-4 p-4 border rounded">
+      {/* الاسم */}
+      <div>
+        <label>الاسم الكامل</label>
+        <input
+          {...register("fullName", {
+            required: "الاسم مطلوب",
+            minLength: { value: 3, message: "الاسم يجب أن يكون 3 أحرف على الأقل" },
+          })}
+          className="w-full border p-2"
+        />
+        {errors.fullName && <p className="text-red-500">{errors.fullName.message}</p>}
+      </div>
+
+      {/* البريد الإلكتروني */}
+      <div>
+        <label>البريد الإلكتروني</label>
+        <input
+          {...register("email", {
+            required: "البريد مطلوب",
+            pattern: {
+              value: /^[^@ ]+@[^@ ]+\.[^@ .]{2,}$/,
+              message: "صيغة البريد غير صحيحة",
+            },
+          })}
+          className="w-full border p-2"
+        />
+        {errors.email && <p className="text-red-500">{errors.email.message}</p>}
+      </div>
+
+      {/* كلمة المرور */}
+      <div>
+        <label>كلمة المرور</label>
+        <input
+          type="password"
+          {...register("password", {
+            required: "كلمة المرور مطلوبة",
+            minLength: { value: 6, message: "يجب أن تكون 6 أحرف على الأقل" },
+          })}
+          className="w-full border p-2"
+        />
+        {errors.password && <p className="text-red-500">{errors.password.message}</p>}
+      </div>
+
+      {/* تأكيد كلمة المرور */}
+      <div>
+        <label>تأكيد كلمة المرور</label>
+        <input
+          type="password"
+          {...register("confirmPassword", {
+            required: "تأكيد كلمة المرور مطلوب",
+            validate: (value) => value === password || "كلمة المرور غير متطابقة",
+          })}
+          className="w-full border p-2"
+        />
+        {errors.confirmPassword && <p className="text-red-500">{errors.confirmPassword.message}</p>}
+      </div>
+
+      {/* زر الإرسال */}
+      <button type="submit" className="bg-blue-600 text-white px-4 py-2 rounded">
+        تسجيل
+      </button>
+    </form>
+  );
+}
+✅ ماذا يحدث هنا:
+  الجزء 	       الغرض   
+register("fieldName", validationRules)	تسجيل الحقل وربط التحقق
+errors.fieldName	عرض رسالة الخطأ لو فيه
+watch("password")	لمراقبة كلمة المرور لمقارنتها بالتأكيد
+

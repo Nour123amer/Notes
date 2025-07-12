@@ -1,0 +1,65 @@
+🧠 ما هي useActionState؟
+هي Hook من React (بدأت تظهر في React 19) وبتستخدم عشان تدير حالة form مرتبطة بـ server action في تطبيقات زي Next.js.
+
+🎯 إمتى نستخدمها؟
+لما يكون عندك form بيرسل بيانات للـ backend (باستخدام Server Actions)، وعايز:
+
+تنفذ الأكشن (مثلاً: إضافة user، إنشاء post، إلخ).
+
+تخزن النتيجة (زي: "تم بنجاح" أو "في خطأ").
+
+تعيد تحديث الواجهة بناءً على النتيجة دي.
+
+✅ شكل الاستخدام:
+tsx
+Copy
+Edit
+const [state, actionFunction] = useActionState(serverAction, initialState);
+serverAction: هي الفنكشن اللي موجودة على السيرفر (مثلاً: createSnippet).
+
+initialState: هي الحالة المبدئية (زي { message: "" }).
+
+state: الحالة اللي بترجع من الـ server بعد ما الـ action يتنفذ.
+
+actionFunction: الفنكشن اللي بتربطها بـ <form action={actionFunction}>
+
+👀 مثال عملي:
+tsx
+Copy
+Edit
+'use client';
+import { useActionState } from 'react';
+import { createSnippet } from '@/actions';
+
+export default function Page() {
+  const [state, action] = useActionState(createSnippet, { message: '' });
+
+  return (
+    <form action={action}>
+      <input name="title" />
+      <input name="code" />
+      <p>{state.message}</p>
+      <button type="submit">Create</button>
+    </form>
+  );
+}
+لما المستخدم يملأ البيانات ويضغط "Create"،
+
+createSnippet بتتنفذ على السيرفر
+
+والنتيجة (مثلاً: { message: "Snippet created!" }) بتتحط في state
+
+والـ <p>{state.message}</p> بتعرض الرسالة
+
+💡 ليه مفيدة؟
+بتخليك تتعامل مع form بدون استخدام useState أو useEffect.
+
+بتشتغل مع Server Actions مباشرةً.
+
+بتبسط إرسال البيانات + عرض النتيجة في نفس الـ component.
+
+📌 تنبيه:
+عشان تستخدم useActionState لازم تكون في client component ('use client').
+
+وServer Actions (زي createSnippet) لازم تكون مكتوبة في ملفات بتدعم ذلك، وعليها use server.
+

@@ -1,5 +1,7 @@
 What are Controlled Components?
-A controlled component in React is an element whose state is controlled by React itself. This means that the component's state is stored in a React component's state and can only be updated by triggering a state change via React’s setState() method.
+A controlled component in React is an element whose state is controlled by React itself.
+This means that the component's state is stored in a React component's state and can only 
+be updated by triggering a state change via React’s setState() method.
 
 Features of Controlled
 State Management: Form data is handled by the component's state using React's useState hook or this.state in class components.
